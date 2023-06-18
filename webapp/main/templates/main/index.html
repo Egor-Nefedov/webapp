@@ -1,0 +1,25 @@
+
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title%}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="map">
+        <span>Где мы работали:</span>
+        <img  src="{% static 'main/img/map.png' %}">
+    </div>
+    <div class="req">
+        <form method="post">
+            {% csrf_token %}
+
+            <p> Оставьте заявку прямо сейчас!</p>
+            {{ form.name }}<br>
+            {{ form.number }}<br>
+            {{ form.email }}<br>
+            {{ form.app }}<br>
+            <span>{{ error }}</span>
+
+            <button class="btn btn-primary" type="submit">Отправить</button>
+        </form>
+    </div>
+{% endblock %}
